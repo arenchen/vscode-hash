@@ -6,11 +6,6 @@ import * as HashType from './constants';
 import { copy } from './clipboard';
 import { crc32 } from './crc32';
 
-const md5 = createHash('md5');
-const sha1 = createHash('sha1');
-const sha256 = createHash('sha256');
-const sha512 = createHash('sha512');
-
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -23,15 +18,10 @@ export function activate(context: vscode.ExtensionContext) {
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
   for (const cmd of HashType.Commands) {
-    context.subscriptions.push(vscode.commands.registerCommand(cmd, (editor, edit) => {
-      getInput(cmd, editor, edit).then(hash => {
-        copyHash(<string>hash);
-      });
-    }));
-  }
-  for (const cmd of HashType.TextEditorCommands) {
-    context.subscriptions.push(vscode.commands.registerTextEditorCommand(cmd, (editor, edit) => {
-      getInput(cmd, editor, edit).then(hash => {
+    context.subscriptions.push(vscode.commands.registerCommand(cmd, (args: any[]) => {
+      const editor = vscode.window.activeTextEditor;
+
+      getInput(cmd, editor).then(hash => {
         copyHash(<string>hash);
       });
     }));
@@ -41,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() { }
 
-async function getInput(hashType: string, editor: any, edit: any) {
+async function getInput(hashType: string, editor: vscode.TextEditor | undefined) {
   if (editor && editor.selection !== undefined) {
     const lsHash: string[] = [];
 
@@ -85,27 +75,18 @@ function getHash(hashType: string, text?: string): string {
 
   switch (hashType) {
     case HashType.HASH_MD5:
-    case HashType.HASH_MD5_EDITOR:
-      md5.update(<string>text);
-      hash = md5.digest('hex');
+      hash = createHash(HashType.MD5).update(<string>text).digest('hex');
       break;
     case HashType.HASH_SHA1:
-    case HashType.HASH_SHA1_EDITOR:
-      sha1.update(<string>text);
-      hash = sha1.digest('hex');
+      hash = createHash(HashType.SHA1).update(<string>text).digest('hex');
       break;
     case HashType.HASH_SHA256:
-    case HashType.HASH_SHA256_EDITOR:
-      sha256.update(<string>text);
-      hash = sha256.digest('hex');
+      hash = createHash(HashType.SHA256).update(<string>text).digest('hex');
       break;
     case HashType.HASH_SHA512:
-    case HashType.HASH_SHA512_EDITOR:
-      sha512.update(<string>text);
-      hash = sha512.digest('hex');
+      hash = createHash(HashType.SHA512).update(<string>text).digest('hex');
       break;
     case HashType.HASH_CRC32:
-    case HashType.HASH_CRC32_EDITOR:
       hash = crc32(<string>text);
       break;
     default:

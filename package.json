@@ -2,7 +2,7 @@
   "name": "hash",
   "displayName": "Hash",
   "description": "Get a Hash Code",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "publisher": "netcorext",
   "author": {
@@ -34,92 +34,56 @@
     "onCommand:hash.md5",
     "onCommand:hash.sha1",
     "onCommand:hash.sha256",
-    "onCommand:hash.sha512",
-
-    "onCommand:hash.crc32.editor",
-    "onCommand:hash.md5.editor",
-    "onCommand:hash.sha1.editor",
-    "onCommand:hash.sha256.editor",
-    "onCommand:hash.sha512.editor"
+    "onCommand:hash.sha512"
   ],
   "contributes": {
     "commands": [
       {
         "command": "hash.crc32",
-        "title": "Copy CRC32 Hash",
-        "group": "hash"
+        "title": "Copy CRC32 Hash"
       },
       {
         "command": "hash.md5",
-        "title": "Copy MD5 Hash",
-        "group": "hash"
+        "title": "Copy MD5 Hash"
       },
       {
         "command": "hash.sha1",
-        "title": "Copy SHA1 Hash",
-        "group": "hash"
+        "title": "Copy SHA1 Hash"
       },
       {
         "command": "hash.sha256",
-        "title": "Copy SHA256 Hash",
-        "group": "hash"
+        "title": "Copy SHA256 Hash"
       },
       {
         "command": "hash.sha512",
-        "title": "Copy SHA512 Hash",
-        "group": "hash"
-      },
-      {
-        "command": "hash.crc32.editor",
-        "title": "Copy CRC32 Hash",
-        "group": "hash"
-      },
-      {
-        "command": "hash.md5.editor",
-        "title": "Copy MD5 Hash",
-        "group": "hash"
-      },
-      {
-        "command": "hash.sha1.editor",
-        "title": "Copy SHA1 Hash",
-        "group": "hash"
-      },
-      {
-        "command": "hash.sha256.editor",
-        "title": "Copy SHA256 Hash",
-        "group": "hash"
-      },
-      {
-        "command": "hash.sha512.editor",
-        "title": "Copy SHA512 Hash",
-        "group": "hash"
+        "title": "Copy SHA512 Hash"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "when": "editorHasSelection",
-          "command": "hash.crc32.editor",
+          "command": "hash.crc32",
           "group": "hash"
         },
         {
           "when": "editorHasSelection",
-          "command": "hash.md5.editor",
+          "command": "hash.md5",
           "group": "hash"
         },
         {
           "when": "editorHasSelection",
-          "command": "hash.sha1.editor",
+          "command": "hash.sha1",
           "group": "hash"
         },
         {
           "when": "editorHasSelection",
-          "command": "hash.sha256.editor",
+          "command": "hash.sha256",
           "group": "hash"
         },
         {
           "when": "editorHasSelection",
-          "command": "hash.sha512.editor",
+          "command": "hash.sha512",
           "group": "hash"
         }
       ]
