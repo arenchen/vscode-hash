@@ -1,150 +1,146 @@
 {
-    "name": "hash",
-    "displayName": "hash",
-    "description": "Get a Hash Code",
-    "version": "0.0.2",
-    "license": "MIT",
-    "publisher": "netcorext",
-    "author": {
-        "name": "Aren Chen",
-        "email": "gucci313031@gmail.com"
-    },
-    "homepage": "https://github.com/arenchen/vscode-hash",
-    "icon": "images/icon.png",
-    "bugs": {
-        "url": "https://github.com/arenchen/vscode-hash/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/arenchen/vscode-hash.git"
-    },
-    "engines": {
-        "vscode": "^1.27.0"
-    },
-    "categories": [
-        "Other"
+  "name": "hash",
+  "displayName": "Hash",
+  "description": "Get a Hash Code",
+  "version": "0.0.3",
+  "license": "MIT",
+  "publisher": "netcorext",
+  "author": {
+    "name": "Aren Chen",
+    "email": "gucci313031@gmail.com"
+  },
+  "homepage": "https://github.com/arenchen/vscode-hash",
+  "icon": "images/icon.png",
+  "bugs": {
+    "url": "https://github.com/arenchen/vscode-hash/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arenchen/vscode-hash.git"
+  },
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "Hash",
+    "Checksum"
+  ],
+  "main": "./out/src/extension.js",
+  "activationEvents": [
+    "onCommand:hash.crc32",
+    "onCommand:hash.md5",
+    "onCommand:hash.sha1",
+    "onCommand:hash.sha256",
+    "onCommand:hash.sha512",
+
+    "onCommand:hash.crc32.editor",
+    "onCommand:hash.md5.editor",
+    "onCommand:hash.sha1.editor",
+    "onCommand:hash.sha256.editor",
+    "onCommand:hash.sha512.editor"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "hash.crc32",
+        "title": "Copy CRC32 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.md5",
+        "title": "Copy MD5 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.sha1",
+        "title": "Copy SHA1 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.sha256",
+        "title": "Copy SHA256 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.sha512",
+        "title": "Copy SHA512 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.crc32.editor",
+        "title": "Copy CRC32 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.md5.editor",
+        "title": "Copy MD5 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.sha1.editor",
+        "title": "Copy SHA1 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.sha256.editor",
+        "title": "Copy SHA256 Hash",
+        "group": "hash"
+      },
+      {
+        "command": "hash.sha512.editor",
+        "title": "Copy SHA512 Hash",
+        "group": "hash"
+      }
     ],
-    "keywords": [
-        "Hash",
-        "Checksum"
-    ],
-    "main": "./out/src/extension",
-    "activationEvents": [
-        "onCommand:hash.crc32",
-        "onCommand:hash.md5",
-        "onCommand:hash.sha1",
-        "onCommand:hash.sha256",
-        "onCommand:hash.sha512",
-        "onCommand:hash.crc32.notify",
-        "onCommand:hash.md5.notify",
-        "onCommand:hash.sha1.notify",
-        "onCommand:hash.sha256.notify",
-        "onCommand:hash.sha512.notify"
-    ],
-    "contributes": {
-        "commands": [
-            {
-                "command": "hash.crc32",
-                "title": "Copy CRC32 Hash"
-            },
-            {
-                "command": "hash.md5",
-                "title": "Copy MD5 Hash"
-            },
-            {
-                "command": "hash.sha1",
-                "title": "Copy SHA1 Hash"
-            },
-            {
-                "command": "hash.sha256",
-                "title": "Copy SHA256 Hash"
-            },
-            {
-                "command": "hash.sha512",
-                "title": "Copy SHA512 Hash"
-            },
-            {
-                "command": "hash.crc32.notify",
-                "title": "Show CRC32 Hash"
-            },
-            {
-                "command": "hash.md5.notify",
-                "title": "Show MD5 Hash"
-            },
-            {
-                "command": "hash.sha1.notify",
-                "title": "Show SHA1 Hash"
-            },
-            {
-                "command": "hash.sha256.notify",
-                "title": "Show SHA256 Hash"
-            },
-            {
-                "command": "hash.sha512.notify",
-                "title": "Show SHA512 Hash"
-            }
-        ],
-        "menus": {
-            "editor/context": [
-                {
-                    "when": "editorHasSelection",
-                    "command": "hash.crc32",
-                    "group": "hash"
-                },
-                {
-                    "when": "editorHasSelection",
-                    "command": "hash.md5",
-                    "group": "hash"
-                },
-                {
-                    "when": "editorHasSelection",
-                    "command": "hash.sha1",
-                    "group": "hash"
-                },
-                {
-                    "when": "editorHasSelection",
-                    "command": "hash.sha256",
-                    "group": "hash"
-                },
-                {
-                    "when": "editorHasSelection",
-                    "command": "hash.sha512",
-                    "group": "hash"
-                }
-            ]
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "hash.crc32.editor",
+          "group": "hash"
         },
-        "scripts": {
-            "vscode:prepublish": "npm run compile",
-            "compile": "tsc -p ./",
-            "watch": "tsc -watch -p ./",
-            "postinstall": "node ./node_modules/vscode/bin/install",
-            "test": "npm run compile && node ./node_modules/vscode/bin/test"
+        {
+          "when": "editorHasSelection",
+          "command": "hash.md5.editor",
+          "group": "hash"
         },
-        "devDependencies": {
-            "typescript": "^2.6.1",
-            "vscode": "^1.1.21",
-            "tslint": "^5.8.0",
-            "@types/node": "^8.10.25",
-            "@types/mocha": "^2.2.42"
+        {
+          "when": "editorHasSelection",
+          "command": "hash.sha1.editor",
+          "group": "hash"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "hash.sha256.editor",
+          "group": "hash"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "hash.sha512.editor",
+          "group": "hash"
         }
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/copy-paste": "^1.1.30",
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^8.10.25",
-        "tslint": "^5.8.0",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.21"
-    },
-    "dependencies": {
-        "copy-paste": "^1.3.0",
-        "crypto": "^1.0.1"
+      ]
     }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "tsc-watch": "^1.1.36",
+    "tslint": "^5.8.0",
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.25"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
+  }
 }

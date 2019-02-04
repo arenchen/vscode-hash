@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 - Initial release
 
+## [0.0.3] - 2019-02-04
+### Changed
+- Refactoring: Improving the Design & Optimization
+
 ## [0.0.2] - 2018-09-17
 ### Changed
 - Convert to TypeScript
